@@ -1,21 +1,52 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-auto">
-      <h1>Movie Lists</h1>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-auto">
-      <ul>
-        <% @lists.each do |list| %>
-          <li><%= link_to list.name, list_path(list) %></li>
-        <% end %>
+<%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Messages</a>
+          </li>
+          <li class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://avatars.githubusercontent.com/u/52705881?v=4" />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+            </div>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
       </ul>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-auto">
-      <%= link_to 'Add a new list', new_list_path, class: "btn btn-primary" %>
-    </div>
+</div> %>
+
+
+<div class="banner" style="background-image: url('<%= image_path 'index_banner_image' %>');">
+  <div class="container">
+    <h1 class="display-1">Movie Lists</h1>
+    <%= link_to 'Add movie list', new_list_path, class: "custom-button" %>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-6">
+        <%= link_to list_path(list), class: "text-decoration-none" do %>
+          <div class="card-category my-2" style="background-image: url(<%= cl_image_path list.photo.key, crop: :fill %>);">
+            <%= list.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

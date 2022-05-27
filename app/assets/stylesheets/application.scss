@@ -9,4 +9,12 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/banner";
+@import "components/card_category";
 @import "pages/index";
+
+$font-family: 'Inter', sans-serif;
+
+body {
+  background-color: #101827;
+}

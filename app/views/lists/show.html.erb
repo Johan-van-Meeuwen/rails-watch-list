@@ -1,4 +1,8 @@
-<h1><%= @list.name %></h1>
+<div class="banner" style="background-image: url(<%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill %>);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
 
 <% @list.bookmarks.each do |bookmark| %>
   <h2><%= bookmark.movie.title %></h2>
