@@ -1,11 +1,13 @@
 require "json"
 require "open-uri"
 
+puts "Cleaning DB"
+Movie.destroy_all
+puts "DB cleaned"
+
 url = "https://tmdb.lewagon.com/movie/top_rated"
 movies_serialized = URI.open(url).read
 movies = JSON.parse(movies_serialized)["results"]
-
-p movies
 
 movies.each do |movie|
   entry = Movie.create(
