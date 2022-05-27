@@ -30,7 +30,7 @@
 </div> %>
 
 
-<div class="banner" style="background-image: url(<%= image_tag asset_path('index_banner_image.jpg') %>);">
+<div class="banner" style="background-image: url(<%= asset_path 'index_banner_image.jpg' %>);">
   <div class="container">
     <h1 class="display-1">Movie Lists</h1>
     <%= link_to 'Add movie list', new_list_path, class: "custom-button" %>
